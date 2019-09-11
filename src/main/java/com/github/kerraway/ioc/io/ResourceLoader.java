@@ -1,5 +1,7 @@
 package com.github.kerraway.ioc.io;
 
+import java.net.URL;
+
 /**
  * 资源加载器
  *
@@ -15,7 +17,8 @@ public class ResourceLoader {
      * @return 资源 URL 对象
      */
     public ResourceUrl getResource(String location) {
-        return null;
+        URL url = this.getClass().getClassLoader().getResource(location);
+        return new ResourceUrl(url);
     }
 
 }
