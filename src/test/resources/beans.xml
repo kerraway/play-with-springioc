@@ -1,12 +1,32 @@
 <beans>
+    <!-- foo1 -->
     <bean name="foo1" class="com.github.kerraway.ioc.factory.Foo">
         <property name="name" value="foo1"/>
+    </bean>
+
+    <!-- bar1 -->
+    <bean name="bar1" class="com.github.kerraway.ioc.factory.Bar">
+        <property name="name" value="bar1"/>
+        <property name="foo" ref="foo2"/>
     </bean>
     <bean name="foo2" class="com.github.kerraway.ioc.factory.Foo">
         <property name="name" value="foo2"/>
     </bean>
-    <bean name="bar1" class="com.github.kerraway.ioc.factory.Bar">
-        <property name="name" value="bar1"/>
-        <property name="foo" ref="foo2"/>
+
+    <!-- foobar1 -->
+    <bean name="foobar1" class="com.github.kerraway.ioc.factory.Foobar">
+        <property name="name" value="foobar1"/>
+        <property name="bar" ref="bar2"/>
+        <property name="foo" ref="foo4"/>
+    </bean>
+    <bean name="bar2" class="com.github.kerraway.ioc.factory.Bar">
+        <property name="name" value="bar2"/>
+        <property name="foo" ref="foo3"/>
+    </bean>
+    <bean name="foo3" class="com.github.kerraway.ioc.factory.Foo">
+        <property name="name" value="foo3"/>
+    </bean>
+    <bean name="foo4" class="com.github.kerraway.ioc.factory.Foo">
+        <property name="name" value="foo4"/>
     </bean>
 </beans>

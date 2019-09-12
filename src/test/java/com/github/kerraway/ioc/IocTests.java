@@ -1,9 +1,9 @@
 package com.github.kerraway.ioc;
 
+import com.github.kerraway.ioc.factory.AutowireBeanFactoryTest;
+import com.github.kerraway.ioc.factory.xml.XmlBeanDefinitionReaderTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-
-import static org.junit.Assert.*;
 
 /**
  * @author kerraway
@@ -11,8 +11,8 @@ import static org.junit.Assert.*;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-
+        AutowireBeanFactoryTest.class,
+        XmlBeanDefinitionReaderTest.class,
 })
 public class IocTests {
-
 }

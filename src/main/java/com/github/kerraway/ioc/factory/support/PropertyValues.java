@@ -28,6 +28,11 @@ public class PropertyValues {
         this.propertyValues = new ArrayList<>(initialCapacity);
     }
 
+    public PropertyValues(PropertyValue propertyValue) {
+        this(1);
+        this.propertyValues.add(propertyValue);
+    }
+
     /**
      * 添加属性定义
      *
