@@ -15,17 +15,17 @@ public interface BeanFactory {
      *
      * @param name Bean 名称
      * @return Bean 实例
-     * @throws Exception
+     * @throws BeansException
      */
-    Object getBean(String name) throws Exception;
+    Object getBean(String name) throws BeansException;
 
     /**
      * 将 Bean 注册到容器中
      *
      * @param name           Bean 名称
      * @param beanDefinition Bean 定义信息
-     * @throws Exception
+     * @throws BeansException
      */
-    void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception;
+    void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws BeansException;
 
 }

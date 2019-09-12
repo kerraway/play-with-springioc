@@ -6,7 +6,7 @@ package com.github.kerraway.ioc.factory;
  * @author kerraway
  * @date 2019/09/11
  */
-public class NoSuchBeanDefinitionException extends RuntimeException {
+public class NoSuchBeanDefinitionException extends BeansException {
 
     private static final long serialVersionUID = -4591646448389629404L;
 

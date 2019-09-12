@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,6 +32,12 @@ public class PropertyValues {
     public PropertyValues(PropertyValue propertyValue) {
         this(1);
         this.propertyValues.add(propertyValue);
+    }
+
+    public PropertyValues(PropertyValue first, PropertyValue... others) {
+        this(1 + others.length);
+        this.propertyValues.add(first);
+        this.propertyValues.addAll(Arrays.asList(others));
     }
 
     /**

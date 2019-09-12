@@ -17,10 +17,14 @@ import java.util.List;
 public class AutowireBeanFactory extends AbstractBeanFactory {
 
     @Override
-    protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception {
-        Object bean = beanDefinition.getBeanClass().newInstance();
-        setProperties(bean, beanDefinition.getPropertyValues().getPropertyValues());
-        return bean;
+    protected Object doCreateBean(BeanDefinition beanDefinition) throws BeansException {
+        try {
+            Object bean = beanDefinition.getBeanClass().newInstance();
+            setProperties(bean, beanDefinition.getPropertyValues().getPropertyValues());
+            return bean;
+        } catch (Exception e) {
+            throw new BeanCreationException(String.format("Create bean from %s failed.", beanDefinition));
+        }
     }
 
     /**

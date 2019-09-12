@@ -19,7 +19,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
     private final Map<String, BeanDefinition> registry = new HashMap<>(1024);
 
     @Override
-    public Object getBean(String name) throws Exception {
+    public Object getBean(String name) throws BeansException {
         BeanDefinition beanDefinition = registry.get(name);
         if (beanDefinition == null) {
             throw new NoSuchBeanDefinitionException(String.format("Can't find bean by name '%s'.", name));
@@ -36,9 +36,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
     }
 
     @Override
-    public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
-        Object bean = doCreateBean(beanDefinition);
-        beanDefinition.setBean(bean);
+    public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws BeansException {
         registry.put(name, beanDefinition);
     }
 
@@ -47,7 +45,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
      *
      * @param beanDefinition bean 定义信息
      * @return bean 实例
-     * @throws Exception
+     * @throws BeansException
      */
-    protected abstract Object doCreateBean(BeanDefinition beanDefinition) throws Exception;
+    protected abstract Object doCreateBean(BeanDefinition beanDefinition) throws BeansException;
 }
